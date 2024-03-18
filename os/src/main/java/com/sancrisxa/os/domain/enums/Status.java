@@ -2,7 +2,7 @@ package com.sancrisxa.os.domain.enums;
 
 public enum Status {
 
-    ABERT(0, "ABERTO"),
+    ABERTO(0, "ABERTO"),
     ANDAMENTO(1, "ANDAMENTO"),
     ENCERRADO(2, "ENCERRAD");
 
