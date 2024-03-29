@@ -1,6 +1,7 @@
 package com.sancrisxa.os.resources;
 
 import com.sancrisxa.os.domain.Tecnico;
+import com.sancrisxa.os.dtos.TecnicoDTO;
 import com.sancrisxa.os.service.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +16,11 @@ public class TecnicoResource {
 
     @Autowired
     private TecnicoService tecnicoService;
+
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id) {
-        Tecnico tecnico = tecnicoService.findById(id);
-        return ResponseEntity.ok().body(tecnico);
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
+        Tecnico tecnico = this.tecnicoService.findById(id);
+        TecnicoDTO tecnicoDTO = new TecnicoDTO(tecnico);
+        return ResponseEntity.ok().body(tecnicoDTO);
     }
 }
