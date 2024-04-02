@@ -1,6 +1,7 @@
 package com.sancrisxa.os.service;
 
 import com.sancrisxa.os.domain.Tecnico;
+import com.sancrisxa.os.dtos.TecnicoDTO;
 import com.sancrisxa.os.exceptions.ObjectNotFoundException;
 import com.sancrisxa.os.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,10 @@ public class TecnicoService {
 
     public List<Tecnico> findAll() {
         return this.tecnicoRepository.findAll();
+    }
+
+    public Tecnico crate(TecnicoDTO tecnicoDTO) {
+        Tecnico tecnico = new Tecnico(null, tecnicoDTO.getNome(), tecnicoDTO.getCpf(), tecnicoDTO.getTelefone());
+        return tecnicoRepository.save(tecnico);
     }
 }

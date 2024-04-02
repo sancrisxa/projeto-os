@@ -23,7 +23,7 @@ public abstract class Pessoa implements Serializable {
 
     @CPF
     private String cpf;
-    private String tefone;
+    private String telefone;
 
     public Pessoa() {
     }
@@ -32,7 +32,7 @@ public abstract class Pessoa implements Serializable {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.tefone = tefone;
+        this.telefone = tefone;
     }
 
     public Integer getId() {
@@ -59,12 +59,12 @@ public abstract class Pessoa implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getTefone() {
-        return tefone;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTefone(String tefone) {
-        this.tefone = tefone;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     @Override
@@ -72,11 +72,11 @@ public abstract class Pessoa implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pessoa pessoa = (Pessoa) o;
-        return Objects.equals(id, pessoa.id) && Objects.equals(nome, pessoa.nome) && Objects.equals(cpf, pessoa.cpf) && Objects.equals(tefone, pessoa.tefone);
+        return Objects.equals(id, pessoa.id) && Objects.equals(nome, pessoa.nome) && Objects.equals(cpf, pessoa.cpf) && Objects.equals(telefone, pessoa.telefone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, cpf, tefone);
+        return Objects.hash(id, nome, cpf, telefone);
     }
 }
