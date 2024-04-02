@@ -15,7 +15,7 @@ public class TecnicoDTO implements Serializable {
 
     @CPF
     private String cpf;
-    private String tefone;
+    private String telefone;
 
     public TecnicoDTO() {
     }
@@ -24,7 +24,7 @@ public class TecnicoDTO implements Serializable {
         this.id = tecnico.getId();
         this.nome = tecnico.getNome();
         this.cpf = tecnico.getCpf();
-        this.tefone = tecnico.getTefone();
+        this.telefone = tecnico.getTelefone();
     }
 
     public Integer getId() {
@@ -51,11 +51,11 @@ public class TecnicoDTO implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getTefone() {
-        return tefone;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTefone(String tefone) {
-        this.tefone = tefone;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }
