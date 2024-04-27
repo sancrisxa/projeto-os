@@ -1,13 +1,13 @@
 package com.sancrisxa.os.dtos;
 
-import com.sancrisxa.os.domain.Tecnico;
+import com.sancrisxa.os.domain.Cliente;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serial;
 import java.io.Serializable;
 
-public class TecnicoDTO implements Serializable {
+public class ClienteDTO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -23,14 +23,14 @@ public class TecnicoDTO implements Serializable {
     @NotEmpty(message = "O campo TELEFONE é requerido")
     private String telefone;
 
-    public TecnicoDTO() {
+    public ClienteDTO() {
     }
 
-    public TecnicoDTO(Tecnico tecnico) {
-        this.id = tecnico.getId();
-        this.nome = tecnico.getNome();
-        this.cpf = tecnico.getCpf();
-        this.telefone = tecnico.getTelefone();
+    public ClienteDTO(Cliente cliente) {
+        this.id = cliente.getId();
+        this.nome = cliente.getNome();
+        this.cpf = cliente.getCpf();
+        this.telefone = cliente.getTelefone();
     }
 
     public Integer getId() {

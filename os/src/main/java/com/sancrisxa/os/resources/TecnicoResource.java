@@ -3,6 +3,7 @@ package com.sancrisxa.os.resources;
 import com.sancrisxa.os.domain.Tecnico;
 import com.sancrisxa.os.dtos.TecnicoDTO;
 import com.sancrisxa.os.service.TecnicoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,12 +48,26 @@ public class TecnicoResource {
     }
 
     @PostMapping
-    public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO tecnicoDTO) {
+    public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO tecnicoDTO) {
         Tecnico tecnico = this.tecnicoService.crate(tecnicoDTO);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(tecnico.getId())
                 .toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<TecnicoDTO> update(@PathVariable Integer id, @Valid @RequestBody TecnicoDTO tecnicoDTO) {
+        TecnicoDTO tecnicoDTOUpdated = new TecnicoDTO(this.tecnicoService.update(id, tecnicoDTO));
+
+        return ResponseEntity.ok().body(tecnicoDTOUpdated);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        this.tecnicoService.delete(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
