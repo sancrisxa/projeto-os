@@ -13,6 +13,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/os")
 public class OsResource {
@@ -41,5 +42,14 @@ public class OsResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(os.getId()).toUri();
 
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping
+    public ResponseEntity<OSDTO> update(@Valid @RequestBody OSDTO osdto) {
+        OSDTO osUpdated = new OSDTO(this.osService.update(osdto));
+
+        return ResponseEntity.ok().body(osUpdated);
+
+
     }
 }
