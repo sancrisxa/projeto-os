@@ -11,6 +11,7 @@ import com.sancrisxa.os.repositories.OSRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,15 @@ public class OsService {
         return this.osRepository.save(os);
     }
 
+    public OS update(OSDTO osdto) {
+
+        this.findById(osdto.getId());
+
+        OS os = this.fromDTO(osdto);
+
+        return this.osRepository.save(os);
+    }
+
     private OS fromDTO(OSDTO osdto) {
         OS os = new OS();
         os.setId(osdto.getId());
@@ -55,8 +65,10 @@ public class OsService {
         os.setTecnico(tecnico);
         os.setCliente(cliente);
 
+        if (os.getStatus().getCod().equals(2)) {
+            os.setDataFechamento(LocalDateTime.now());
+        }
+
         return os;
-
-
     }
 }
