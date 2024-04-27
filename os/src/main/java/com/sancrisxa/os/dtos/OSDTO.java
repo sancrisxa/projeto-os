@@ -5,6 +5,7 @@ import com.sancrisxa.os.domain.Cliente;
 import com.sancrisxa.os.domain.OS;
 import com.sancrisxa.os.domain.Tecnico;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -22,8 +23,10 @@ public class OSDTO implements Serializable {
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dataFechamento;
-    
+
     private Integer prioridade;
+
+    @NotEmpty(message = "O campo OBSERVAÇÕES é requerido")
     private String observacoes;
     private Integer status;
     private Integer tecnico;
