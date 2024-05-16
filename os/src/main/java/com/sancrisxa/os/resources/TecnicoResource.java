@@ -28,6 +28,7 @@ public class TecnicoResource {
         return ResponseEntity.ok().body(tecnicoDTO);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public ResponseEntity<List<TecnicoDTO>> findAll() {
 

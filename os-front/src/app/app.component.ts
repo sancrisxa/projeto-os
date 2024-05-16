@@ -18,6 +18,8 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { HeaderComponent } from '../app/views/components/template/header/header.component';
 import { FooterComponent } from '../app/views/components/template/footer/footer.component';
+import { NavComponent } from '../app/views/components/template/nav/nav.component';
+
 
 
 @Component({
@@ -41,7 +43,8 @@ import { FooterComponent } from '../app/views/components/template/footer/footer.
     MatSnackBarModule,
     MatMenuModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NavComponent
   ],
   templateUrl: 'app.component.html',
   styles: [],
