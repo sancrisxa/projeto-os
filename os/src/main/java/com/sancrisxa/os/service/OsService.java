@@ -56,8 +56,8 @@ public class OsService {
         OS os = new OS();
         os.setId(osdto.getId());
         os.setObservacoes(osdto.getObservacoes());
-        os.setPrioridade(Prioridade.toEnum(osdto.getPrioridade()));
-        os.setStatus(Status.toEnum(osdto.getStatus()));
+        os.setPrioridade(Prioridade.toEnum(osdto.getPrioridade().getCod()));
+        os.setStatus(Status.toEnum(osdto.getStatus().getCod()));
 
         Tecnico tecnico = this.tecnicoService.findById(osdto.getTecnico());
         Cliente cliente = this.clienteService.findById(osdto.getCliente());
